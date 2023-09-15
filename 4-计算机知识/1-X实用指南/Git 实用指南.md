@@ -216,11 +216,11 @@ git add -A
 # 提交更改
 git commit -am "清除所有历史版本以减少仓库大小，请重新从远程拷贝此仓库"
 # 删除分支
-git branch -D master
+git branch -D main
 # 将当前分支重命名
-git branch -m master
+git branch -m main
 # 最后，强制更新存储库
-git push -f origin master
+git push -f origin main
 ```
 
 2. 创建一个新分支，然后删除旧分支

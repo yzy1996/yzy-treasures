@@ -181,3 +181,28 @@ rm -f "${HOME}/.condarc"
 
 
 
+
+
+一个conda初始化的环境，可以看到源是很干净的，没有pypi的来源
+
+```shell
+# packages in environment at C:\Users\yzy\miniconda3\envs\test:
+#
+# Name                    Version                   Build  Channel
+bzip2                     1.0.8                he774522_0
+ca-certificates           2023.01.10           haa95532_0
+libffi                    3.4.4                hd77b12b_0
+openssl                   1.1.1t               h2bbff1b_0
+pip                       23.0.1          py310haa95532_0
+python                    3.10.11              h966fe2a_2
+setuptools                66.0.0          py310haa95532_0
+sqlite                    3.41.2               h2bbff1b_0
+tk                        8.6.12               h2bbff1b_0
+tzdata                    2023c                h04d1e81_0
+vc                        14.2                 h21ff451_1
+vs2015_runtime            14.27.29016          h5e58377_2
+wheel                     0.38.4          py310haa95532_0
+xz                        5.4.2                h8cc25b3_0
+zlib                      1.2.13               h8cc25b3_0
+```
+

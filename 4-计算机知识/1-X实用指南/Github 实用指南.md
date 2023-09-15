@@ -71,3 +71,15 @@ $[0].commit.committer.date
 https://api.github.com/repos/JaidedAI/EasyOCR/releases/lates
 
 https://api.github.com/JaidedAI/EasyOCR/releases/latest
+
+
+
+
+
+https://substats.spencerwoo.com/#supported-services
+
+https://github.com/spencerwooo/Substats
+
+https://substats.spencerwoo.com/api.html
+
+https://ews.ink/tech/write-badges/

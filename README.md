@@ -34,7 +34,6 @@
 
 - **13700K CPU, 4090 FE GPU, 64GB RAM**，实验室个人主机 （装机详情参见）
 - **9700K CPU, 2080 Ti GPU, 64GB RAM**，实验室学校主机
-
 - **Apple MacBook Pro (14-inch，2021) 深空灰色，M1 Pro，32GB RAM，1T SSD**，主力机每天背着往返于实验室和宿舍
 - **Apple iPad Pro (12.9-inch，第5代)，128 GB**，主要用来看论文做笔记
 - **Apple iPhone 13 mini 黑色，256GB**，主力手机
@@ -45,6 +44,7 @@
 - **Apple Magic Trackpad 触摸板**，搭配盒盖后的MacBook使用
 - **三星 T5 SSD，1TB**，主要用来存储摄影和视频素材，很小，传输速度很快
 - **希捷移动硬盘，5TB**，用来存数据
+- 充电设备
 
 
 
@@ -85,6 +85,7 @@
 - **One Switch**，清理屏幕快捷
 - **PasteNow**，粘贴板管理
 - **NTFS Paragon (Seagate)**，读取NTFS格式硬盘
+- **Screen Studio**，录屏
 
 #### Windows
 
@@ -103,7 +104,6 @@
 - PDF Expert
 - Goodnotes
 - 
-
 
 
 

@@ -1,13 +1,6 @@
 # 一文解释 tensor 相关
 
-
-
-## Table of Contents
-
-- Tensor 和 Numpy 互转
-- Tensor 在 CPU 和 GPU 互转
-
-
+[toc]
 
 #### Tensor 和 Numpy 互转
 
@@ -160,6 +153,26 @@ split
 
 
 
+### 加减乘除
+
+$\otimes$ 张量乘
+
+**矩阵乘法**
+
+```python
+torch.mm
+torch.bmm
+torch.matmul
+
+torch.mul
+```
+
+前三个等价于 `@` 操作符，最后一个等价于 `* ` 操作符
+
+
+
+
+
 ### Embed 初始化
 
 ```python
@@ -220,5 +233,90 @@ out1 = next(model.named_parameters())
 out2 = next(model.parameters())
 
 out1[1][1] == out2[1] # True
+
+
+
+for name, param in model.named_parameters():
+    print(name, param)
+    
+for name, param in model.state_dict().items():
+    print(name, param.size())
+```
+
+
+
+还有一个 model._parameters
+
+
+
+
+
+for name, param in model.state_dict().items():
+    print(name, param.size())
+
+
+
+
+
+model.state_dict()其实返回的是一个OrderDict，存储了网络结构的名字和对应的参数
+
+只有那些参数可以训练的layer才会被保存到模型的state_dict中,如卷积层,线性层等等，像什么池化层、BN层这些本身没有参数的层是没有在这个字典中的；
+
+这个方法的作用一方面是方便查看某一个层的权值和偏置数据，另一方面更多的是在模型保存的时候使用。
+
+优化器对象Optimizer也有一个state_dict,它包含了优化器的状态以及被使用的超参数(如lr, momentum,weight_decay等)
+
+
+
+
+
+https://discuss.pytorch.org/t/issue-using-parameters-internal-method/134549/11
+
+```python
+module._parameters[param_key] = memo[p]
+
+# Can become
+delattr(module, param_key)
+setattr(module, param_key, memo[p])
+```
+
+
+
+
+
+
+
+在pytorch中模型需要保存下来的参数包括：
+
+parameter：反向传播需要被 optimizer 更新的，可以被训练。
+buffer：反向传播不需要被 optimizer 更新，不可被训练。
+ 
+这两种参数都会分别保存到 一个OrderDict 的变量中，最终由 model.state_dict() 返回进行保存。
+
+
+
+
+
+
+
+nn.Module
+
+```python
+成员变量：
+
+_buffers：由self.register_buffer() 定义，requires_grad默认为False，不可被训练。
+_parameters：self.register_parameter()、nn.parameter.Parameter()、nn.Parameter() 定义的变量都存放在该属性下，且定义的参数的 requires_grad 默认为 True。
+_modules：nn.Sequential()、nn.conv() 等定义的网络结构中的结构存放在该属性下。
+ 
+成员函数：
+
+self.state_dict()：OrderedDict 类型。保存神经网络的推理参数，包括parameter、buffer
+self.name_parameters()：为迭代器。self._module 和 self._parameters中所有的可训练参数的名字+tensor。包括 BN的 bn.weight、bn.bias。
+self.parameters()：与self.name_parameters()一样，但不包含名字
+self.name_buffers()：为迭代器。网络中所有的不可训练参数和自己注册的buffer 中的参数的名字+tensor。包括 BN的 bn.running_mean、bn.running_var、bn.num_batches_tracked。
+self.buffers()：与self.name_buffers()一样，但不包含名字
+net.named_modules()：为迭代器。self._module中定义的网络结构的名字+层
+net.modules()：与self.named_modules()一样，但不包含名字
+
 ```
 

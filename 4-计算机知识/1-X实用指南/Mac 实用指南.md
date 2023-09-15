@@ -40,3 +40,15 @@ brew update --auto-update
 - option + command + space 启动 finder 搜索
 - command + l 是翻译
 
+
+
+
+
+# 一些指令
+
+```bash
+uptime # 查看电脑运行时间
+
+
+```
+
